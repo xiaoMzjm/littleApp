@@ -1,0 +1,12 @@
+<!--index.wxml-->
+
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+  previous-margin="0px" next-margin="0px" display-multiple-items="1" circular="true">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item class="slide-item">
+      <image data-redirect-url="{{item.redirectUrl}}" src="{{item.imgUrl}}" class="slide-image" bindtap='onSwiperImageTap'/>
+    </swiper-item>
+  </block>
+</swiper>
+

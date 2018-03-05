@@ -1,0 +1,8 @@
+/**index.wxss**/
+swiper{
+  height:200px;
+}
+
+.slide-image{
+  width:100%;
+}

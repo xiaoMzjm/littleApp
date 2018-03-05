@@ -1,0 +1,32 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/my/my",
+    "pages/test/test"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#62CB74",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh":true 
+  },
+  "tabBar": {
+    "selectedColor":"#2CA826",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "训练",
+        "iconPath":"images/training.png",
+        "selectedIconPath":"images/training_high_light.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/head.png",
+        "selectedIconPath": "images/head_high_light.png"
+      }
+    ]
+  }
+}

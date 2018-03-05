@@ -1,0 +1,52 @@
+<!--pages/test/test.wxml-->
+<text>测试：转发</text>
+<button open-type="share">点击转发</button>
+<text>----------------------------------------------</text>
+<text>测试：打赏(个人账号无法开通)</text>
+<button bindtap="onTapDaShang">点击打赏(无效)</button>
+<text>----------------------------------------------</text>
+<text>测试：二维码付款</text>
+<view style='align-items: center;display: flex;'>
+  <image bindtap="onImageTap" src="https://t1.picb.cc/uploads/2018/02/23/KHqOt.png" class="er-wei-ma-fu-kuan"  mode="top"></image>
+</view>
+<text>----------------------------------------------</text>
+<text>测试：音频播放</text>
+<view class="section tc">
+  <video id="{{videoId}}" src="{{videoSrc}}"   controls="true"  bindended="onVideoEnd"></video>
+</view>
+<text>----------------------------------------------</text>
+<text>测试：圆角阴影卡片</text>
+<view class="card"></view>​
+<view class="card2"></view>​
+<text>----------------------------------------------</text>
+<text>测试：照片墙</text>
+<view id="imgWrapFather">
+  <view id="imgWrap">
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+    <image animation="{{imgWrapAnimationData}}" class="imgWrapImg" src='https://t1.picb.cc/uploads/2018/02/27/YMiWg.png'></image>
+  </view>
+  <button bindtap="onImgWrapTap" id="imgWrapBtn">点击查看效果</button>
+</view>
+
+<text>----------------------------------------------</text>
+<text>测试：圆形进度条</text>
+<view class="circleProgress_wrapper">
+      <view class="wrapper right">
+          <view class="circleProgress rightcircle"></view>
+      </view>
+      <view class="wrapper left">
+          <view class="circleProgress leftcircle"></view>
+      </view>
+</view>
+
+<text>----------------------------------------------</text>
+<text>测试：http请求</text>
+<button bindtap="onHttpRequestBtnTap">点击请求</button>
+<view>结果:{{httpRequestResult}}</view>

@@ -1,0 +1,159 @@
+/* pages/test/test.wxss */
+.er-wei-ma-fu-kuan{
+  height:440px;
+}
+
+video{
+  width:100%;
+}
+
+image{
+  width:100%;
+}
+
+/********************************************卡片**********************************************/
+.card{
+  border-radius: 25px;
+  background: #8AC007;
+  width: 150px;
+  height: 150px;  
+  margin-left:auto;
+  margin-right:auto;
+  box-shadow:0px 10px 10px rgb(220,220,220)
+}
+
+.card2{
+  border-radius: 0px  0px 160px 0px;
+  background: #8AC007;
+  width: 160px;
+  height: 160px; 
+  box-shadow:10px 10px 10px rgb(220,220,220);
+  animation:mymove 1s;
+}
+
+@keyframes mymove
+{
+	from {width: 0px;height: 0px;}
+	to {width: 160px;height: 160px; }
+}
+
+/********************************************照片墙**********************************************/
+.imgWrapFather{
+    width:500px;
+}
+#imgWrap{
+    height:240px;
+
+    /*以下三个属性的组合实现了当前元素的水平居中（相对父元素）*/
+    width:240px;
+    margin-left:auto;
+    margin-right:auto;
+
+    /* 景深，眼镜离物体的距离，景深越大，物体越小*/
+    perspective:800px;
+}
+#imgWrap .imgWrapImg{
+    float:left;
+    width:80px;
+    height:80px;
+}
+#imgWrapBtn{
+    /*以下三个属性的组合实现了当前元素的水平居中（相对父元素）*/
+    width:200px;
+    margin-left:auto;
+    margin-right:auto;
+
+    text-align: center;
+
+    /* 16是字体大小,40是行高，行高有垂直居中的效果 */
+    font: 16px/40px "微软雅黑";
+
+    color:#fff;
+
+    /*0是上下 20是左右*/
+    padding:0 20px;
+
+    background-color: rgb(0,100,0);
+    margin-top:100px;
+    border-radius: 5px;
+    box-shadow:2px 2px 5px rgba(0,0,0,0.5);
+}
+/********************************************圆形进度条**********************************************/
+/* 最外层正方形 */
+.circleProgress_wrapper{
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    position: relative;
+    border:1px solid #ddd;
+}
+/* 两个矩形 */
+.wrapper{
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    top:0;
+    overflow: hidden;
+}
+/* 右边矩形 */
+.right{
+    right:0;
+}
+/* 左右矩形 */
+.left{
+    left:0;
+}
+/* 半圆 */
+.circleProgress{
+    width: 160px;
+    height: 160px;
+    border:20px solid rgb(232, 232, 12);
+    border-radius: 50%;
+    position: absolute;
+    top:0;
+    transform: rotate(45deg);
+}
+/* 右边半圆 */
+.rightcircle{
+    border-top:20px solid green;
+    border-right:20px solid green;
+    right:0;
+    animation: circleProgressLoad_right 5s linear infinite;
+}
+/* 左边半圆 */
+.leftcircle{
+    border-bottom:20px solid green;
+    border-left:20px solid green;
+    left:0;
+    animation: circleProgressLoad_left 5s linear infinite;
+}
+/* 右边半圆动画，前面2.5动，后面2.5不动，保持225deg */
+@keyframes circleProgressLoad_right{
+    0%{
+        
+        -webkit-transform: rotate(45deg);
+    }
+    50%{
+        
+        transform: rotate(225deg);
+    }
+    100%{
+        
+        transform: rotate(225deg);
+    }
+}
+/* 左边半圆动画，前面2.5秒不动，保持45deg，后面2.5才动*/
+@keyframes circleProgressLoad_left{
+    0%{
+        
+        transform: rotate(45deg);
+    }
+    50%{
+        
+        transform: rotate(45deg);
+    }
+    100%{
+        
+        transform: rotate(225deg);
+    }
+}
