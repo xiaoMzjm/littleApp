@@ -3,29 +3,46 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/my/my",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/friend/friend",
+    "pages/exchange/exchange"
   ],
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#62CB74",
+    "backgroundTextStyle":"normal",
+    "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle":"black",
     "enablePullDownRefresh":true 
   },
   "tabBar": {
-    "selectedColor":"#2CA826",
+    "color":"#5f6870",
+    "selectedColor":"#34b073",
+    "backgroundColor":"#292f35",
+    "borderStyle":"black",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "训练",
-        "iconPath":"images/training.png",
-        "selectedIconPath":"images/training_high_light.png"
+        "iconPath":"images/move2.png",
+        "selectedIconPath":"images/move.png"
+      },
+      {
+        "pagePath": "pages/friend/friend",
+        "text": "发现",
+        "iconPath": "images/friend2.png",
+        "selectedIconPath": "images/friend.png"
       },
       {
         "pagePath": "pages/my/my",
-        "text": "我的",
-        "iconPath": "images/head.png",
-        "selectedIconPath": "images/head_high_light.png"
+        "text": "个人",
+        "iconPath": "images/human2.png",
+        "selectedIconPath": "images/human.png"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "Test",
+        "iconPath": "images/human2.png",
+        "selectedIconPath": "images/human.png"
       }
     ]
   }

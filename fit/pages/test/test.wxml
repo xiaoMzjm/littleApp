@@ -12,7 +12,7 @@
 <text>----------------------------------------------</text>
 <text>测试：音频播放</text>
 <view class="section tc">
-  <video id="{{videoId}}" src="{{videoSrc}}"   controls="true"  bindended="onVideoEnd"></video>
+  <video id="{{videoId}}" src="{{videoBaidu}}"   controls="true"  bindended="onVideoEnd"></video>
 </view>
 <text>----------------------------------------------</text>
 <text>测试：圆角阴影卡片</text>

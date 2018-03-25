@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "我的"
+  "navigationBarTitleText": "Move",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
 }

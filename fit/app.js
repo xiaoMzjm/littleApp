@@ -38,9 +38,9 @@ App({
   },
   // 当小程序启动，或从后台进入前台显示，会触发 onShow
   onShow: function (path){
-    console.info("onShow:path:");
-    console.info(path);
-    console.info("场景值：https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/scene.html");
+    // console.info("onShow:path:");
+    // console.info(path);
+    // console.info("场景值：https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/scene.html");
   },
   // 当小程序从前台进入后台，会触发 onHide
   onHide:function(){

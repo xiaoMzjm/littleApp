@@ -1,6 +1,144 @@
+import * as echarts from '../../ec-canvas/echarts';
+
 //index.js
 //获取应用实例
 const app = getApp()
+
+let chart = null;
+
+function initChart(canvas, width, height) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: 250
+  });
+  canvas.setChart(chart);
+
+  var option = {
+    backgroundColor: "#292f35",
+    color: ["#868686", "#67E0E3", "#9FE6B8"],
+
+    tooltip: {
+      trigger: 'axis',
+      showContent:true,
+      axisPointer: {
+        type: 'line',
+        label: {
+          show: true,
+          backgroundColor: '#868686'
+        },
+        formatter: function (prams) {
+          console.info("==============");
+          console.info(params);
+          return "卡路里：" + prams[0].data 
+        }
+      }
+    },
+    legend: {
+      data: [{
+        name: '卡路里', 
+        textStyle: {
+          color: '#868686'
+        }
+      }]
+    },
+    grid: {
+      top: 50,
+      left: 10,
+      right: 10,
+      bottom: 80,
+      containLabel: true,
+      show: false,
+    },
+
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: ['11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21'],
+      axisLine: {
+        lineStyle: {
+          color: '#868686'
+        }
+      },
+      axisLabel: {
+        color: '#868686'
+      },
+      axisTick: {
+        show: false
+      },
+      // axisLabel: {
+      //   show: false
+      // },
+      // axisLine: {
+      //   show: false
+      // }
+    },
+    yAxis: {
+      x: 'center',
+      type: 'value',
+      axisLine: {
+        lineStyle: {
+          color: '#868686'
+        }
+      },
+      axisLabel: {
+        color: '#868686'
+      },
+      splitLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      },
+      axisLine: {
+        show: false
+      }
+    },
+    series: [
+    {
+      name: '卡路里',
+      type: 'line',
+      smooth: false,
+      symbol: 'emptyCircle',
+      lineStyle: {
+        width:1
+      },
+      data: [50, 55, 40, 45, 47, 46, 30, 28, 33, 33, 33],
+      "itemStyle": {
+        "normal": {
+          "barBorderRadius": 0,
+          "label": {
+            "show": true,
+            "position": "top",
+            formatter: function (p) {
+              return p.value > 0 ? (p.value) : '';
+            }
+          }
+        }
+      },
+    },
+    {
+      name: 'bar',
+      type: 'bar',
+      smooth: false,
+      data: [50, 55, 40, 45, 47, 46, 30, 28, 33,33,33],
+      barWidth: 0.5,
+      itemStyle: {
+        normal: {
+          barBorderRadius: 5,
+          color: '#868686'
+        }
+      },
+    },
+
+    ]
+  };
+
+  chart.setOption(option);
+  return chart;
+}
 
 Page({
   // 小程序启动之后 触发
@@ -41,8 +179,6 @@ Page({
 
   // 生命周期函数--监听页面加载
   onLoad: function (query) {
-    console.info("onLoad:query");
-    console.info(query);
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -71,17 +207,35 @@ Page({
         }
       })
     }
+
   },
+
+  exchange:function(){
+    wx.navigateTo({
+      url: '/pages/exchange/exchange'
+    })
+  },
+
+
 
   // 页面的初始数据
   data: {
-    motto: '未来健身独角兽',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    icon1:'http://pics.sc.chinaz.com/Files/pic/icons128/6003/b4.png',
-    icon2:'https://t1.picb.cc/uploads/2018/02/22/KGvKg.png',
-    icon3:''
+    manIcon:'https://t1.picb.cc/uploads/2018/03/25/2tXlyd.png',
+    girlIcon: 'https://t1.picb.cc/uploads/2018/03/25/2tXuma.png',
+    sex:1,
+    myTrainDays: '10天',
+    myTarget: '减肥10KG',
+    myMoney: 590,
+    trainMinTotal: 200,
+    trainCalTotal: 20000,
+    ec: {
+      onInit: initChart
+    },
+
   },
 
 })
+

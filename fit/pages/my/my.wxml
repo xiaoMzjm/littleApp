@@ -1,44 +1,127 @@
 <view class="container">
+
+  <!-- 头像和人名 -->
   <view class="user-simple-info">
-    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <!-- 头像 -->
+    <view class="userinfo-head" stype="flex-direction:row;">
+      <view class="userinfo-head-middle">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+        <view class="userinfo-sex" >
+          <image wx:if="{{sex == 1}}" class="userinfo-sex-image" src="{{manIcon}}"></image>
+          <image wx:if="{{sex == 2}}" class="userinfo-sex-image" src="{{girlIcon}}"></image>
+        </view>
+      </view>
+    </view>
+    <!-- 人名 -->
+    <view class="userinfo-nickname">
+      <view class="userinfo-nickname-view">
+        <text class="userinfo-nickname-text">{{userInfo.nickName}}</text>
+      </view>
+    </view>
   </view>
 
 
-<view class="page">
-    <view class="page__bd">
 
-        <view class="weui-cells__title"></view>
-        <view class="weui-cells weui-cells_after-title">
-            <navigator url="../logs/logs" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__hd">
-                    <image src="{{icon1}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                </view>
-                <view class="weui-cell__bd">赢取积分</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-        </view>
-        
-        <view class="weui-cells__title"></view>
-        <view class="weui-cells weui-cells_after-title">
-            <navigator url="../logs/logs" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__hd">
-                    <image src="{{icon2}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                </view>
-                <view class="weui-cell__bd">兑换商城</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-            <navigator url="../test/test" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__hd">
-                    <image src="{{icon3}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                </view>
-                <view class="weui-cell__bd">测试</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </navigator>
-        </view>
+  <!-- 三个主信息 -->
+  <view class="mainInfo" style="">
+
+    <!-- 总共训练 -->
+    <view class="mainInfo-box">
+      <!-- 天数 -->
+      <view class="mainInfo-box-content1">{{myTrainDays}}</view>
+      <!-- 文字 -->
+      <view  class="mainInfo-box-title">总共训练</view>
     </view>
-</view>
+
+    <!-- 我的目标 -->
+    <view class="mainInfo-box">
+      <!-- 目标 -->
+      <view  class="mainInfo-box-content2">{{myTarget}}</view>
+      <!-- 文字 -->
+      <view class="mainInfo-box-title">我的目标</view>
+    </view>
+
+    <!-- 我的金币 -->
+    <view class="mainInfo-box">
+      <!-- 金币 -->
+      <view class="mainInfo-box-content1">{{myMoney}}</view>
+      <!-- 文字 -->
+      <view class="mainInfo-box-title">我的金币</view>
+    </view>
+  </view>
 
 
+
+  <!-- 一根横线 -->
+  <view class="line-father">
+    <view class="line"></view>
+  </view>
+
+
+  <!-- 福利兑换 -->
+  <view class="exchange" bindtap="exchange">
+    <!-- 图标和文字 -->
+    <view class="exchange-box"> 
+      <!-- 图标-->
+      <view class="exchange-box-image-father">
+        <image class="exchange-box-image" src="https://t1.picb.cc/uploads/2018/03/25/2tEqgX.png"></image>
+      </view>
+      <!-- 文字 -->
+      <view class="exchange-box-text-fahter">
+        <text>福利兑换</text>
+      </view>
+    </view>
+  
+    <!-- 箭头 -->
+    <view class="exchange-box">
+      <!-- 图标 -->
+      <view class="exchange-box-enter-image-father">
+        <image class="exchange-box-enter-image" src="https://t1.picb.cc/uploads/2018/03/25/2tEQ3K.png"></image>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 训练统计 -->
+  <view class="trainStatistics">
+    <!-- 圆角-->
+    <view class="trainStatistics-radius-view"></view>
+
+    <!-- 外层-->
+    <view class="trainStatistics-box">
+      <!-- 总共训练-->
+      <view class="trainStatistics-trainTotal">
+        <!-- 文字-->
+        <view class="trainStatistics-trainTotal-text">
+          <text>总共训练</text>
+        </view>
+        <!-- 分钟数-->
+        <view class="trainStatistics-trainTotal-min">
+          <text>{{trainMinTotal}}</text>
+          <text class="trainStatistics-trainTotal-min-text">分钟</text>
+        </view>
+      </view>
+
+      <!-- 图表 -->
+      <view class="trainStatistics-chart">
+         <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas> 
+      </view>
+
+      <!-- 消耗统计 -->
+      <view class="trainStatistics-consume">
+        <!-- 文字 -->
+        <view class="trainStatistics-consume-text">
+          <text class="trainStatistics-consume-xiaohao">消耗</text>
+          <text class="trainStatistics-consume-num">{{trainCalTotal}}</text>
+          <text class="trainStatistics-consume-kaluli">卡路里</text>
+        </view>
+
+        <!-- 更改训练 -->
+        <view class="changeTrainBox">
+          <view class="changeTrainButton"><text>更改训练</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
 
 </view>
