@@ -1,0 +1,211 @@
+<!--pages/requirement/requirement.wxml-->
+<view class="container">
+
+  <!-- logo -->
+  <view class="logo">
+    <image class="logo-img" src="https://t1.picb.cc/uploads/2018/05/05/2qBvgR.png"></image>
+  </view>
+
+  <!-- tab -->
+  <view class="tab">
+    <!-- 上方留白 -->
+    <view class="top-blank"></view>
+
+    <!-- 中间主要内容 -->
+    <view>
+    
+      <!-- 主要内容整体布局，整体右移，左边留白 -->
+      <view class="tab-margin-left">
+      
+        <!-- 选择你的需求 -->
+        <view>
+          <text class="tab-choseyounedd-text">选择你的需求</text>
+        </view>
+
+        <!-- 我们会根据你的需求量身定做 -->
+        <view>
+          <text class="tab-desc-text">我们会根据你的需求量身指定计划</text>
+        </view>
+
+        <!-- 减肥 -->
+        <view wx:if="{{choseTabIndex != 1}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="loseWeight" bindtap="tapNeedType">
+          <view class="lost-weight-tab-title-view">
+            <text class="lost-weight-tab-title">减肥</text>
+          </view>
+          <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qFTZW.png"></image></view>
+        </view>
+        <view wx:if="{{choseTabIndex == 1}}"  class="lost-weight-tab" style="background-color:#34b073" id="loseWeight" bindtap="tapNeedType">
+          <view class="lost-weight-tab-title-view">
+            <text class="lost-weight-tab-title" style="color:white">减肥</text>
+          </view>
+          <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qFP7i.png"></image></view>
+        </view>
+
+        <!-- 塑形 -->
+        <view wx:if="{{choseTabIndex != 2}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="moulding" bindtap="tapNeedType">
+          <view class="lost-weight-tab-title-view">
+            <text class="lost-weight-tab-title">塑形</text>
+          </view>
+          <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qFRTL.png" style="width:170rpx"></image></view>
+        </view>
+        <view wx:if="{{choseTabIndex == 2}}"  class="lost-weight-tab" style="background-color:#34b073" id="moulding" bindtap="tapNeedType">
+          <view class="lost-weight-tab-title-view">
+            <text class="lost-weight-tab-title" style="color:white">塑形</text>
+          </view>
+          <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qFFnv.png" style="width:170rpx"></image></view>
+        </view>
+
+
+        <!-- 增肌 -->
+        <view wx:if="{{choseTabIndex != 3}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="addMuscle" bindtap="tapNeedType">
+          <view class="lost-weight-tab-title-view">
+            <text class="lost-weight-tab-title">增肌</text>
+          </view>
+          <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qFXDD.png" style="width:170rpx"></image></view>
+        </view>
+        <view wx:if="{{choseTabIndex == 3}}"  class="lost-weight-tab" style="background-color:#34b073" id="addMuscle" bindtap="tapNeedType">
+          <view class="lost-weight-tab-title-view">
+            <text class="lost-weight-tab-title" style="color:white">减肥</text>
+          </view>
+          <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qF98w.png" style="width:170rpx"></image></view>
+        </view>
+
+
+        <!-- 性别体重身高 -->
+        <view class="little-tab-view">
+          <!-- 性别男 -->
+          <view id="manSexButton" class="little-tab" bindtap="tapSex">
+            <view class="little-tab-sex-title"><text class="little-tab-title">性别</text></view>
+            <view wx:if="{{sex == 1}}" class="little-tab-button">
+              <view class="little-tab-left">
+                <text class="little-tab-left-text">男</text>
+              </view>
+              <view class="little-tab-right">
+                <image class="little-tab-right-images" src="https://t1.picb.cc/uploads/2018/05/05/2qRe3G.png"></image>
+              </view>
+            </view>
+            <view wx:if="{{sex == 2}}" class="little-tab-button" style="background-color:#e0e0e0">
+              <view class="little-tab-left">
+                <text class="little-tab-left-text" style='color:black'>男</text>
+              </view>
+              <view class="little-tab-right">
+                <image class="little-tab-right-images" src="https://t1.picb.cc/uploads/2018/05/05/2qRnuX.png"></image>
+              </view>
+            </view>
+          </view>
+
+          <!-- 性别女 -->
+          <view id="girlSexButton" class="little-tab" bindtap="tapSex">
+            <view class="little-tab-sex-title"><text class="little-tab-title"></text></view>
+            <view wx:if="{{sex == 2}}" class="little-tab-button">
+              <view class="little-tab-left">
+                <text class="little-tab-left-text">女</text>
+              </view>
+              <view class="little-tab-right">
+                <image class="little-tab-right-images" src="https://t1.picb.cc/uploads/2018/05/05/2qRIdg.png"></image>
+              </view>
+            </view>
+            <view wx:if="{{sex == 1}}" class="little-tab-button" style="background-color:#e0e0e0">
+              <view class="little-tab-left">
+                <text class="little-tab-left-text" style='color:black'>女</text>
+              </view>
+              <view class="little-tab-right">
+                <image class="little-tab-right-images" src="https://t1.picb.cc/uploads/2018/05/05/2qR6p8.png"></image>
+              </view>
+            </view>
+          </view>
+
+          <!-- 体重 -->
+          <view class="little-tab">
+            <view class="little-tab-sex-title"><text class="little-tab-title">体重</text></view>
+            <view class="little-tab-button"  style="background-color:#e0e0e0">
+              <view class="little-tab-left">
+                <input  class="little-tab-left-input" type="number" adjust-position="true" confirm-type="done"  bindinput="inputWeight" value="{{weight}}"></input>
+              </view>
+              <view class="little-tab-right">
+                <text class="little-tab-left-text"  style='color:black'>kg</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 身高 -->
+          <view class="little-tab">
+            <view class="little-tab-sex-title"><text class="little-tab-title">身高</text></view>
+            <view class="little-tab-button"  style="background-color:#e0e0e0">
+              <view class="little-tab-left">
+                <input  class="little-tab-left-input" type="number" adjust-position="true" confirm-type="done" bindinput="inputHeight" value="{{height}}"></input>
+              </view>
+              <view class="little-tab-right">
+                <text class="little-tab-left-text"  style='color:black'>cm</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 难度 -->
+          <!-- 新手-->
+          <view id="oneDifficultyButton" class="little-tab" bindtap="tapDiffculity">
+            <view class="little-tab-sex-title"><text class="little-tab-title">难度</text></view>
+            <view wx:if="{{difficulty == 1}}" class="little-tab-button">
+              <view class="little-tab-all">
+                <text class="little-tab-all-text">新手</text>
+              </view>
+            </view>
+            <view wx:if="{{difficulty != 1}}" class="little-tab-button" style="background-color:#e0e0e0">
+              <view class="little-tab-all">
+                <text class="little-tab-all-text" style='color:black'>新手</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- 入门 -->
+          <view id="secondDifficultyButton" class="little-tab" bindtap="tapDiffculity">
+            <view class="little-tab-sex-title"><text class="little-tab-title"></text></view>
+            <view wx:if="{{difficulty == 2}}" class="little-tab-button">
+              <view class="little-tab-all">
+                <text class="little-tab-all-text">入门</text>
+              </view>
+            </view>
+            <view wx:if="{{difficulty != 2}}" class="little-tab-button" style="background-color:#e0e0e0">
+              <view class="little-tab-all">
+                <text class="little-tab-all-text" style='color:black'>入门</text>
+              </view>
+            </view>
+          </view>
+
+          <!-- PRO -->
+          <view id="thirdDifficultyButton" class="little-tab" bindtap="tapDiffculity">
+            <view class="little-tab-sex-title"><text class="little-tab-title"></text></view>
+            <view wx:if="{{difficulty == 3}}" class="little-tab-button">
+              <view class="little-tab-all">
+                <text class="little-tab-all-text">PRO</text>
+              </view>
+            </view>
+            <view wx:if="{{difficulty != 3}}" class="little-tab-button" style="background-color:#e0e0e0">
+              <view class="little-tab-all">
+                <text class="little-tab-all-text" style='color:black'>PRO</text>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        
+
+        <!-- 完成 -->
+        <view class="finish-view">
+          <view class="finish-view-botton" bindtap="finish">
+            <text class="finish-view-button-text">完成</text>
+          </view>
+        </view>
+
+      </view>
+
+    </view>
+
+    <!-- 下方留白 -->
+    <view class="bottom-blank"></view>
+  </view>
+
+  <!-- 下方留白 -->
+  <view class="bottom"></view>
+
+</view>

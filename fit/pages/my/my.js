@@ -14,7 +14,7 @@ function initChart(canvas, width, height) {
   canvas.setChart(chart);
 
   var option = {
-    backgroundColor: "#292f35",
+    backgroundColor: "#2C353E",
     color: ["#868686", "#67E0E3", "#9FE6B8"],
 
     tooltip: {
@@ -27,8 +27,6 @@ function initChart(canvas, width, height) {
           backgroundColor: '#868686'
         },
         formatter: function (prams) {
-          console.info("==============");
-          console.info(params);
           return "卡路里：" + prams[0].data 
         }
       }
@@ -234,7 +232,15 @@ Page({
     ec: {
       onInit: initChart
     },
+  },
 
+  /**
+   * 更改训练计划
+   */
+  changeTrain:function(){
+    wx.navigateTo({
+      url: '/pages/requirement/requirement',
+    })
   },
 
 })

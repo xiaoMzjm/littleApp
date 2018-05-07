@@ -1,4 +1,4 @@
-/* pages/test/test.wxss */
+section/* pages/test/test.wxss */
 .er-wei-ma-fu-kuan{
   height:440px;
 }

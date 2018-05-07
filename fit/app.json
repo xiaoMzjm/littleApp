@@ -5,19 +5,23 @@
     "pages/my/my",
     "pages/test/test",
     "pages/friend/friend",
-    "pages/exchange/exchange"
+    "pages/exchange/exchange",
+    "pages/movelist/movelist",
+    "pages/movedetail/movedetail",
+    "pages/requirement/requirement",
+    "pages/recommendtarget/recommendtarget"
   ],
   "window":{
     "backgroundTextStyle":"normal",
     "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black",
-    "enablePullDownRefresh":true 
+    "enablePullDownRefresh": false
   },
   "tabBar": {
     "color":"#5f6870",
     "selectedColor":"#34b073",
-    "backgroundColor":"#292f35",
+    "backgroundColor":"#39424a",
     "borderStyle":"black",
     "list": [
       {

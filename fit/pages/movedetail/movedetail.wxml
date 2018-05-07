@@ -1,0 +1,86 @@
+<!--pages/movedetail/movedetail.wxml-->
+<view class="container">
+  <!-- 视频 -->
+  <view class="video-view">
+    <video class="video" id="{{videoId}}" src="{{videoBaidu}}"   controls="true"  bindended="onVideoEnd" autoplay="true"></video>
+  </view>
+
+  <!-- 大标题-->
+  <view class="big-title">
+    <text class="big-title-text">剪刀蹲</text>
+  </view>
+
+  <!-- 训练概述-->
+  <view class="summarize">
+
+    <view class="summarize-blank"></view>
+
+    <!-- 训练概述文字-->
+    <view class="summarize-title">
+    <view class="summarize-title-blank"></view>
+      <text class="summarize-title-text">训练概述</text>
+    </view>
+
+    <!-- 强度-->
+    <view class="summarize-strength">
+
+      <view class="summarize-strength-blank"></view>
+    
+      <!-- 腿部强度 -->
+      <view class="summarize-strength-leg">
+        <!-- 标题-->
+        <view class="summarize-strength-leg-title">腿部强度</view>
+        <view class="summarize-strength-leg-progress-out">
+          <view class="summarize-strength-leg-progress-in"></view>
+        </view>
+      </view>
+
+      <!-- 臀部强度 -->
+      <view class="summarize-strength-leg">
+        <!-- 标题-->
+        <view class="summarize-strength-leg-title">臀部强度</view>
+        <view class="summarize-strength-leg-progress-out">
+          <view class="summarize-strength-leg-progress-in"></view>
+        </view>
+      </view>
+
+      <!-- 手臂强度 -->
+      <view class="summarize-strength-leg">
+        <!-- 标题-->
+        <view class="summarize-strength-leg-title">手臂强度</view>
+        <view class="summarize-strength-leg-progress-out">
+          <view class="summarize-strength-leg-progress-in"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 简介 -->
+    <view class="summarize-introduction">
+      <view class="summarize-introduction-blank"></view>
+      <text class="summarize-introduction-text">每组12个，组间休息45秒，消耗卡路里2000</text>
+    </view>
+
+    <!-- 器材-->
+    <view class="summarize-equipment">
+      <view class="summarize-equipment-blank"></view>
+      <text class="summarize-equipment-text">需要器材：<text class="summarize-equipment-text-list">无</text></text>
+    </view>
+  </view>
+
+
+  <!-- 注意事项 -->
+  <view class="notice">
+    <!-- 标题-->
+    <view class="notice-title">
+      <view class="notice-title-blank"></view>
+      <text class="notice-title-text">注意事项</text>
+    </view>
+
+    <!-- 注意事项列表 -->
+    <view class="notice-list-top"></view>
+    <view wx:for="{{noticeList}}"  wx:for-index="idx" wx:for-item="itemName" class="notice-list">- {{itemName}}</view>
+    <view class="notice-list-bottom"></view>
+  </view>
+
+
+</view>

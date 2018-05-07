@@ -1,0 +1,52 @@
+<!--pages/movelist/movelist.wxml-->
+
+<view>
+  <!-- 今日计划 -->
+  <view class="todayPlan">
+    <view class="todayPlan-blank"></view>
+    <view class="todayPlan-title">今日计划</view>
+    <view class="todayPlan-num">(6/12)</view>
+  </view>
+
+  <!-- 第几日-->
+  <view class="how-many-days">
+    <view class="how-many-days-blank"></view>
+    <view class="how-many-days-days">第9日：</view>
+    <view class="how-many-days-moves">深蹲、箭步蹲、腿举、靠墙蹲</view>
+  </view>
+
+  <!-- 进度条 -->
+  <view class="progress-bar">
+    <view class="progress-bar-blank"></view>
+    <view class="progress-bar-out">
+      <view class="progress-bar-in"></view>
+    </view>
+  </view>
+
+  <!-- 动作列表 -->
+  <view id="{{itemName}}" class="move-list" wx:for="{{movelist}}"  wx:for-index="idx" wx:for-item="itemName" bindtap="go2moveDetail">
+    <view class="move-list-blank"></view>
+    <view class="move-list-image-view" >
+      <image class="move-list-image" src="https://t1.picb.cc/uploads/2018/04/14/24MAv7.png"></image>
+      <view wx:if="{{idx==0 || idx==1}}" class="move-list-image-mask"></view>
+      <image  wx:if="{{idx==0 || idx==1}}"class="move-list-image-mask-gou" src="https://t1.picb.cc/uploads/2018/04/14/24vRHG.png"></image>
+    </view>
+    <view class="move-list-content">
+      <view class="move-list-content-title">剪刀蹲</view>
+      <view class="move-list-content-num">5x12</view>
+      <view class="move-list-conent-relax">休息01:00</view>
+    </view>
+    <view class="move-list-play">
+      <image class="move-list-play-image" src="https://t1.picb.cc/uploads/2018/04/14/24OAoW.png"></image>
+    </view>
+    <view class="move-list-line"></view>
+  </view>
+
+  <!-- 底部空白 -->
+  <view class="bottom-blank"></view>
+
+  <!-- 开始训练按钮 -->
+  <view class="begin">
+    <view class="begin-text"> 开始训练</view>
+  </view>
+</view>

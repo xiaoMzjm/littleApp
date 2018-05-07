@@ -1,0 +1,88 @@
+<!--pages/requirement/requirement.wxml-->
+<view class="container">
+
+  <!-- logo -->
+  <view class="logo">
+    <image class="logo-img" src="https://t1.picb.cc/uploads/2018/05/05/2qBvgR.png"></image>
+  </view>
+
+  <!-- tab -->
+  <view class="tab">
+    <!-- 上方留白 -->
+    <view class="top-blank"></view>
+
+    <!-- 中间主要内容 -->
+    <view>
+    
+      <!-- 我的目标 -->
+      <view class="mytarget">
+      
+        <!-- 左边 -->
+        <view class="mytarget-left">
+        
+          <!-- 我的目标-->
+          <view class="mytarget-left-title">
+            <text class="mytarget-left-title-text">我的目标</text>
+          </view>
+
+          <!-- 描述 -->
+          <view class="mytarget-left-desc">
+            <text class="mytarget-left-desc-text">一个月内</text>
+          </view>
+          <view class="mytarget-left-desc2">
+            <text class="mytarget-left-desc2-text">{{targetType}}</text>
+          </view>
+
+          <!-- 千克-->
+          <view class="mytarget-left-kg">
+            <text class="mytarget-left-kg-num">{{kgNum}}</text>
+            <text class="mytarget-left-kg-kg">kg</text>
+          </view>
+        </view>
+
+        <!-- 右边  -->
+        <view class="mytarget-right">
+          <view class="mytarget-right-image-view">
+            <image class="mytarget-right-image" src="{{image}}"></image>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 描述-->
+      <view class="desc">
+        <!-- 文字 -->
+        <view class="desc-text-view">
+          <text class="desc-text">这是我们为您指定的月度目标，我们相信您能够完的！分享给好友，让他们来见证您的决心或一起锻炼吧！</text>
+        </view>
+      </view>
+
+
+      <!-- 分享和开始训练-->
+      <view class="shareAndBegin">
+      
+        <!-- 分享 -->
+        <view class="shareAndBegin-share" >
+          <button class="shareAndBegin-share-button"  open-type="share">
+            立flag
+          </button>
+        </view>
+
+        <!-- 开始训练 -->
+        <view class="shareAndBegin-begin" bindtap="startTrain">
+          <view class="shareAndBegin-begin-button">
+            开始训练
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+
+    <!-- 下方留白 -->
+    <view class="bottom-blank"></view>
+  </view>
+
+  <!-- 下方留白 -->
+  <view class="bottom"></view>
+
+</view>
