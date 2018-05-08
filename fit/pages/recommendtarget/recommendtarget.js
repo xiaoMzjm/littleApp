@@ -85,7 +85,11 @@ Page({
    */
   startTrain:function(){
     console.info("开始训练");
+<<<<<<< HEAD
     wx.navigateTo({
+=======
+    wx.switchTab({
+>>>>>>> abeb545f7649cc4d858842fed65f5afdc356f38e
       url: '/pages/my/my',
     })
   }
