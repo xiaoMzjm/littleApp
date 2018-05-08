@@ -150,5 +150,5 @@ Page({
         console.log(res)
       }
     })
-  }
+  },
 })

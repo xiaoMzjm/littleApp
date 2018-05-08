@@ -118,7 +118,7 @@
 
         <!-- 更改训练 -->
         <view class="changeTrainBox">
-          <view class="changeTrainButton"><text>更改训练</text></view>
+          <view class="changeTrainButton" bindtap="changeTrain"><text>更改训练</text></view>
         </view>
       </view>
     </view>

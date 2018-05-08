@@ -1,12 +1,100 @@
 <!--index.wxml-->
 
-<swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
-  previous-margin="0px" next-margin="0px" display-multiple-items="1" circular="true">
-  <block wx:for="{{imgUrls}}">
-    <swiper-item class="slide-item">
-      <image data-redirect-url="{{item.redirectUrl}}" src="{{item.imgUrl}}" class="slide-image" bindtap='onSwiperImageTap'/>
-    </swiper-item>
-  </block>
-</swiper>
+<view class="container">
 
+  <view class="blank"></view>
+
+  <view class="todayPlan" bindtap="movelist">
+
+    <view class="todayPlan-title">
+      <view class="todayPlan-title-text">今日计划</view>
+      <view class="todayPlan-title-done">(6/12)</view>
+      <view></view>
+    </view>
+
+    <view class="todayPlan-time-and-move">
+      <view class="todayPlan-time">第9日：</view>
+      <view class="todayPlan-move">深蹲、箭步蹲、腿举、靠墙蹲</view>
+    </view>
+
+    <view class="todayPlan-progress-bar">
+      <view class="todayPlan-progress-bar-left"></view>
+    </view>
+
+    <view class="todayPlan-image">
+      <image class="todayPlan-image-image" src="https://t1.picb.cc/uploads/2018/04/01/2ixsZs.png"></image>
+      <view class="todayPlan-image-detail">
+          <view class="todayPlan-image-detail-view"><text>训练详解 ></text></view>
+        </view>
+    </view>
+
+    <view class="todayPlan-move-total">
+      <text class="todayPlan-move-total-text">共7个动作，耗时35分钟，消耗卡路里2000</text>
+    </view>
+
+    <view class="todayPlan-begin">
+      <view class="todayPlan-begin-move">
+        <text class="todayPlan-begin-move-text">开始训练</text>
+      </view>
+    </view>
+    <view></view>
+  </view>
+
+
+
+  <!-- 训练统计 -->
+  <view class="trainStatistics">
+    <!-- 圆角-->
+    <view class="trainStatistics-radius-view"></view>
+
+    <!-- 外层-->
+    <view class="trainStatistics-box">
+      <!-- 总共训练-->
+      <view class="trainStatistics-trainTotal">
+        <!-- 文字-->
+        <view class="trainStatistics-trainTotal-text">
+          <text>总共训练</text>
+        </view>
+        <!-- 分钟数-->
+        <view class="trainStatistics-trainTotal-min">
+          <text>{{trainMinTotal}}</text>
+          <text class="trainStatistics-trainTotal-min-text">分钟</text>
+        </view>
+        <view class="trainStatistics-trainTotal-more">
+          <text>...</text>
+        </view>
+      </view>
+
+      <!-- 图表 -->
+      <view class="trainStatistics-chart">
+         <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas> 
+      </view>
+
+      <!-- 消耗统计 -->
+      <view class="trainStatistics-consume">
+        <!-- 文字 -->
+        <view class="trainStatistics-consume-text">
+          <text class="trainStatistics-consume-xiaohao">坚持</text>
+          <text class="trainStatistics-consume-num">{{trainDayTotal}}</text>
+          <text class="trainStatistics-consume-kaluli">天</text>
+        </view>
+
+        <!-- 文字 -->
+        <view class="trainStatistics-consume-text">
+          <text class="trainStatistics-consume-xiaohao">消耗</text>
+          <text class="trainStatistics-consume-num">{{trainCalTotal}}</text>
+          <text class="trainStatistics-consume-kaluli">卡路里</text>
+        </view>
+
+        <!-- 点击转发 -->
+        <view class="shareBox">
+          <button class="shareBox-button" open-type="share">
+            <image  class="shareBox-image" src="https://t1.picb.cc/uploads/2018/04/01/2nnS1g.png"></image>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="foolter"></view>
+</view>

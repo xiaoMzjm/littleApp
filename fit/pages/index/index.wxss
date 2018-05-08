@@ -1,8 +1,133 @@
 /**index.wxss**/
-swiper{
-  height:200px;
+
+.container {
+   /* background-image: url(https://t1.picb.cc/uploads/2018/03/31/2i4BLX.jpg);  */
+  background-color: #39424a;  
 }
 
-.slide-image{
-  width:100%;
+.blank{
+  height:70rpx;
+}
+
+
+
+.todayPlan {
+  width: 90%;margin-left: auto;margin-right: auto;background-color: #ffffff;height: 630rpx;border-radius: 0.2em;
+}
+.todayPlan-title{
+  padding-top: 42rpx;padding-left: 58rpx;width: 90%;height: 70rpx;
+}
+.todayPlan-title-text {
+  float: left;color: #131b21;font-size: 41.5rpx;font-weight: 600;letter-spacing: 10rpx;
+}
+.todayPlan-title-done{
+  margin-left: 20rpx;float: left;font-size: 32rpx;padding-top: 10rpx;letter-spacing: 5rpx;
+}
+
+
+.todayPlan-time-and-move{
+  width: 90%;height: 50rpx;padding-left: 58rpx;font-size: 21rpx;letter-spacing: 5rpx;color: #565656;
+}
+.todayPlan-time{
+  float: left;
+}
+
+
+.todayPlan-progress-bar{
+  width: 550rpx;height: 10rpx;background-color: #adadad;margin-left: 29px;border-radius: 1em;margin-top: 15rpx;
+}
+.todayPlan-progress-bar-left {
+  height: 10rpx;width: 200rpx;background-color: #34b073;border-radius: 1rem;
+}
+
+
+.todayPlan-image {
+  margin-left: 58rpx;margin-top: 48rpx;position:relative;height: 215rpx;
+}
+.todayPlan-image-image {
+  width: 550rpx;height: 182rpx;float: left;
+}
+.todayPlan-image-detail{
+  position: absolute;right: 50rpx;top: 95rpx;
+}
+.todayPlan-image-detail-view {
+  float:right;margin-right:50rpx;font-size: 20rpx;border-radius: 0.3em;border:solid 1rpx #ffffff;color:#ffffff;letter-spacing: 5rpx;width:150rpx;text-align: center;margin-top:25rpx;
+}
+
+
+.todayPlan-move-total{
+  width: 600rpx;height: 50rpx;padding-left: 58rpx;font-size: 21rpx;letter-spacing: 5rpx;color: #565656;
+}
+
+
+.todayPlan-begin{
+  width: 100%;height: 70rpx;padding-top: 20rpx;
+}
+.todayPlan-begin-move{
+  border-radius: 0.3em;width: 368rpx;height: 63rpx;background-color: #34b073;margin-left: auto;margin-right:auto;text-align: center;
+}
+.todayPlan-begin-move-text{
+  font-size: 29rpx;color: #ffffff;letter-spacing: 15rpx;line-height: 63rpx;
+}
+
+
+
+
+.trainStatistics{
+  height:450rpx;width:100%;
+}
+.trainStatistics-radius-view{
+  width: 100%;height: 10rpx; border-bottom-left-radius: 5em;border-bottom-right-radius: 5em;
+}
+.trainStatistics-box{
+  width: 90%;height: 420rpx; background-color: #2C353E;margin-left: auto;margin-right: auto;margin-top: 70rpx; border-radius: 0.3em;
+}
+.trainStatistics-trainTotal{
+  width: 100%;height: 100rpx;
+}
+.trainStatistics-trainTotal-text{
+  float: left;margin-left: 50rpx;margin-top: 20rpx;color: white;font-size: 38rpx;font-weight: 800;width: 220rpx;letter-spacing:10rpx;
+}
+.trainStatistics-trainTotal-min{
+  float: left;width: 300rpx;margin-top: 20rpx;color:#34b073;font-size: 38rpx;font-weight: 500;letter-spacing:10rpx;
+}
+.trainStatistics-trainTotal-min-text{
+  font-size: 22rpx;font-weight: 300;color:white;margin-left:15rpx;
+}
+.trainStatistics-trainTotal-more{
+  float: left;margin-top: 40rpx;color: #ffffff;writing-mode: tb-rl;margin-left: 30rpx;
+}
+.trainStatistics-chart {
+  width:100%;height:210rpx;
+}
+.trainStatistics-consume{
+  width:100%;height:100rpx;padding-top:10rpx;
+}
+.trainStatistics-consume-text{
+  float: left;height: 100rpx;font-size: 25rpx;letter-spacing: 5rpx;color: #ffffff;margin-top:20rpx;
+}
+.trainStatistics-consume-xiaohao{
+  margin-left: 50rpx;
+}
+.trainStatistics-consume-num {
+  margin-left: 20rpx; 
+}
+.trainStatistics-consume-kaluli{
+  margin-left: 10rpx;font-size: 18rpx;
+}
+
+
+.shareBox-button{
+  width: 50rpx;background-color: #39424a;position: relative;height: 50rpx;margin-top: 20rpx;float: right;margin-right: 50rpx;border: none;
+}
+button[class="shareBox-button"]::after {
+  border: 0;
+}
+.shareBox-image{
+  width: 36rpx;height: 34rpx;float: right;right: 10rpx;top: 10rpx;position: absolute;
+}
+
+
+.foolter{
+  height: 70rpx;
 }

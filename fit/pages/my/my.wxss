@@ -1,5 +1,10 @@
 /* pages/my/my.wxss */
 
+.container {
+   /* background-image: url(https://t1.picb.cc/uploads/2018/03/31/2i59W7.png);  */
+   background-color: #39424a;  
+}
+
 .user-simple-info{
   background-color: #ffffff;width: 750rpx;height: 350rpx;text-align: center;flex-direction: column;position:relative;
 }
@@ -39,17 +44,15 @@
 
 
 .mainInfo{
-  width:100%;height:120rpx;text-align: center;margin-top:40rpx;
+  background-color: #ffffff;
+  width:100%;height:120rpx;text-align: center;padding-top:40rpx;
 }
-
 .mainInfo-box{
   width:33%;height:120rpx;float:left;
 }
-
 .mainInfo-box-title{
   height:60rpx;line-height:60rpx;font-size: 25rpx;font-weight: 300;color: #565656;
 }
-
 .mainInfo-box-content1{
   height:60rpx;line-height:60rpx;font-size: 33.5rpx;font-weight: 800;
 }
@@ -63,7 +66,8 @@
 
 
 .line-father{
-  height:10px;width:100%;margin-top:30rpx;
+  background-color: #ffffff;
+  height:10px;width:100%;padding-top:30rpx;
 }
 .line{
   width:650rpx;height:1rpx;background-color:#b1b1b1;margin-left:auto;margin-right:auto;opacity:0.5;
@@ -74,29 +78,26 @@
 
 
 .exchange{
+  background-color: #ffffff;
   width: 100%;height: 100rpx;
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
 }
-
 .exchange-box{
   width: 50%;height: 100rpx;float:left;
 }
-
 .exchange-box-image-father{
   height: 100rpx;float: left;width: 50px;margin-left: 70rpx; text-align: center;
 }
-
 .exchange-box-image{
   width:44rpx;height:44rpx;margin-top:20rpx;
 }
-
 .exchange-box-text-fahter{
   height: 100rpx; width: 150rpx; float: left;font-size: 28rpx; font-weight: 800;line-height: 80rpx; color: #000000;margin-left:5rpx;
 }
-
 .exchange-box-enter-image-father{
   height: 100rpx; float: right;margin-right: 50px;
 }
-
 .exchange-box-enter-image{
   width: 38rpx;height: 38rpx;margin-top: 26rpx;
 }
@@ -106,13 +107,13 @@
 
 
 .trainStatistics{
-  height:750rpx;width:100%;background-color: black;
+  height:750rpx;width:100%;
 }
 .trainStatistics-radius-view{
-  width: 100%;height: 10rpx; background-color: white;border-bottom-left-radius: 5em;border-bottom-right-radius: 5em;
+  width: 100%;height: 10rpx; border-bottom-left-radius: 5em;border-bottom-right-radius: 5em;
 }
 .trainStatistics-box{
-  width: 90%;height: 600rpx; background-color: #292f35;margin-left: auto;margin-right: auto;margin-top: 70rpx; border-radius: 0.3em;
+  width: 90%;height: 600rpx; background-color: #2C353E;margin-left: auto;margin-right: auto;margin-top: 70rpx; border-radius: 0.3em;
 }
 .trainStatistics-trainTotal{
   width: 100%;height: 100rpx;

@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "Move",
+  "navigationBarTitleText": "MOVE",
   "usingComponents": {
     "ec-canvas": "../../ec-canvas/ec-canvas"
   }

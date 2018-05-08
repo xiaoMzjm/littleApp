@@ -1,0 +1,107 @@
+/* pages/requirement/requirement.wxss */
+
+.container {
+    /* background-image: url(https://t1.picb.cc/uploads/2018/03/31/2i4BLX.jpg);   */
+    background-color: #39424a;  
+}
+
+
+.logo{
+  width: 100%;height: 200rpx;text-align:center;
+}
+.logo-img{
+  width: 224rpx;height: 110rpx;margin-top:50rpx;
+}
+
+
+
+
+.tab{
+  width: 600rpx;height: 820rpx;background-color: #ffffff;margin-left: 37px;border-radius: 0.3em;
+}
+
+
+
+.mytarget{
+  width: 100%;height: 478rpx;background:linear-gradient(#32B275, #49CE9A);border-radius: 0.3em;color:white;position: relative;
+}
+.mytarget-left{
+  height: 478rpx;position:absolute;
+}
+.mytarget-left-title{
+  margin-left: 50rpx;padding-top: 40rpx;
+}
+.mytarget-left-title-text{
+  font-size: 29rpx;letter-spacing: 6rpx;
+}
+.mytarget-left-desc{
+  margin-left: 50rpx; padding-top: 40rpx; 
+}
+.mytarget-left-desc-text{
+  font-size: 34rpx;letter-spacing: 7.2rpx;
+}
+.mytarget-left-desc2{
+  margin-left: 50rpx; 
+}
+.mytarget-left-desc2-text{
+  font-size: 34rpx;letter-spacing: 7.2rpx;
+}
+.mytarget-left-kg{
+  margin-left: 50rpx;
+}
+.mytarget-left-kg-num{
+  font-size: 125rpx;
+}
+.mytarget-left-kg-kg{
+  margin-left: 40rpx;letter-spacing: 7rpx;
+}
+
+
+
+
+
+.mytarget-right{
+  position: absolute;height: 478rpx;width: 312rpx;right: 0;
+}
+.mytarget-right-image{
+  width: 312rpx;height: 478rpx;
+}
+
+
+
+
+
+.desc{
+  width: 100%;
+}
+.desc-text-view{
+  margin-left:40rpx;padding-top: 50rpx;width: 520rpx;line-height:38rpx;
+}
+.desc-text{
+  font-size: 21rpx;letter-spacing: 5rpx;
+}
+.shareAndBegin{
+  padding-top: 50rpx;width: 100%;height: 70rpx;
+}
+.shareAndBegin-share{
+  float: left;
+}
+.shareAndBegin-share-button{
+  margin-left: 50rpx;text-align: center;width: 180rpx;background-color: #34b073;border-radius: 0.3em;height:60rpx;font-size: 29rpx;letter-spacing: 6rpx;color:white;line-height:60rpx;
+}
+
+.shareAndBegin-begin{
+  float: left;
+}
+.shareAndBegin-begin-button{
+  margin-left: 60rpx;text-align: center;width: 240rpx;background-color: #384149;border-radius: 0.3em;height:60rpx;font-size: 29rpx;letter-spacing: 16rpx;color:white;line-height:60rpx;
+}
+
+
+
+
+
+
+.bottom{
+  width: 100%; height:200rpx;
+}/* pages/recommendtarget/recommendtarget.wxss */

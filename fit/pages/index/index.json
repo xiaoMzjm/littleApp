@@ -1,3 +1,8 @@
 {
-  "navigationBarTitleText": "训练"
+  "navigationBarTitleText": "MOVE",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "navigationBarBackgroundColor":"#39424a",
+  "navigationBarTextStyle": "white"
 }
