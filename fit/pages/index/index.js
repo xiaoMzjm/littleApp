@@ -152,8 +152,6 @@ Page({
   },
 
   onLoad: function (query) {
-    // console.info("index:onLoad:query");
-    // console.info(query);
   },
 
   onSwiperImageTap:function(event){

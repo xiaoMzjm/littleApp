@@ -6,6 +6,7 @@ var util = require("./utils/util.js");
 // 通过 getApp() 获取实例之后，不要私自调用生命周期函数。
 App({
   onLaunch: function (path) {
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

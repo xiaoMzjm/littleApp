@@ -1,20 +1,45 @@
-// pages/recommendtarget/recommendtarget.js
+
+const app = getApp()
+
+// pages/loading/loading.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    targetType:'增肌',
-    kgNum:3,
-    image:'https://t1.picb.cc/uploads/2018/05/06/2qRPkW.png'
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var me = this;
+    var id = setInterval(function(){
+      console.info("定时器");
+      let userInfo = app.globalData.userInfo;
+      
+      if (userInfo) {
+        console.info("loading.js userInfo=");
+        console.info(userInfo);
+        let courseNum = userInfo.courseNum;
+
+        if (courseNum && courseNum > 0) {
+          wx.switchTab({
+            url: '/pages/index/index',
+          })
+        }
+        else {
+          wx.navigateTo({
+            url: '/pages/requirement/requirement',
+          })
+        }
+        console.info(id);
+        clearInterval(id);
+      }
+    }
+    ,1000);
   },
 
   /**
@@ -62,33 +87,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      // 来自页面内转发按钮
-      console.log(res.target)
-    }
-    return {
-      title: '邀您一起见证我的训练计划！',
-      path: '/pages/index/index?id=123',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
-  },
-
-
-  /**
-   * 跳转到开始训练页面
-   */
-  startTrain:function(){
-    console.info("开始训练");
-    wx.switchTab({
-      url: '/pages/index/index',
-    })
+  onShareAppMessage: function () {
+  
   }
-
-
 })

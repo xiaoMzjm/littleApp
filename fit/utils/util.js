@@ -41,6 +41,9 @@ const getTestServerUrl = () => {
   return getServerDomain() + testServerUrl;
 }
 
+/**
+ * 或者登陆Url
+ */
 const getServerUrlForLogin = () => {
   return getServerDomain() + serverUrlForLogin;
 }
@@ -50,6 +53,6 @@ module.exports = {
   formatTime: formatTime,
   env : env,
   getServerDomain: getServerDomain,
-  getTestServerUrl: getTestServerUrl,
+  getTestServerUrl: getTestServerUrl, 
   getServerUrlForLogin: getServerUrlForLogin,
 }

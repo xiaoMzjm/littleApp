@@ -1,0 +1,14 @@
+/* pages/loading/loading.wxss */
+.container{
+  text-align: center
+}
+
+.logo-img{
+  width: 200rpx;height: 150rpx;margin-top: 300rpx;
+}
+.text1{
+  line-height:100rpx;letter-spacing:5rpx;
+}
+.text2{
+  color: #b8b8b8;font-size:30rpx;line-height:50rpx;letter-spacing:5rpx;
+}

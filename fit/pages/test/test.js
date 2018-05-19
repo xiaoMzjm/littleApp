@@ -1,3 +1,5 @@
+var util = require("../../utils/util.js");
+
 // pages/test/test.js
 Page({
 
