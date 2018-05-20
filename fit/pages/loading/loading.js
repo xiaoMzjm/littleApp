@@ -15,11 +15,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.jump();
+  },
+
+  /**
+   * 页面跳转
+   */
+  jump:function(){
     var me = this;
-    var id = setInterval(function(){
+    var id = setInterval(function () {
       console.info("定时器");
       let userInfo = app.globalData.userInfo;
-      
+
       if (userInfo) {
         console.info("loading.js userInfo=");
         console.info(userInfo);
@@ -39,7 +46,7 @@ Page({
         clearInterval(id);
       }
     }
-    ,1000);
+    , 1000);
   },
 
   /**
@@ -53,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.jump();
   },
 
   /**

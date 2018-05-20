@@ -1,3 +1,7 @@
+
+var util = require("../../utils/util.js");
+const app = getApp()
+
 // pages/recommendtarget/recommendtarget.js
 Page({
 
@@ -5,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    targetType:'增肌',
+    requirementTypeName:'增肌',
     kgNum:3,
     image:'https://t1.picb.cc/uploads/2018/05/06/2qRPkW.png'
   },
@@ -28,7 +32,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.init();
   },
 
   /**
@@ -57,6 +61,45 @@ Page({
    */
   onReachBottom: function () {
   
+  },
+
+  init:function(){
+    let userInfo = app.globalData.userInfo;
+    let me = this;
+    // 需求信息
+    wx.request({
+      url: util.getServerUrlForGetRequirement() + '/' + userInfo.userCode,
+      data: {
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      //服务端的回掉  
+      success: function (result) {
+        console.info(result);
+        if (result.data.success != true) {
+          wx.showModal({
+            title: '抱歉失败',
+            content: result.data.errorMsg,
+            showCancel: false,
+          });
+          return;
+        }
+        let requirement = result.data.data;
+        me.setData({
+          requirementTypeName: requirement.requirementTypeName,
+          kgNum: requirement.kgNum
+        });
+      },
+      fail: function () {
+        wx.showModal({
+          title: '网络错误',
+          content: '网络错误',
+          showCancel: false,
+        });
+      }
+    })
   },
 
   /**

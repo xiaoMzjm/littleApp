@@ -28,13 +28,13 @@
         </view>
 
         <!-- 减肥 -->
-        <view wx:if="{{choseTabIndex != 1}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="loseWeight" bindtap="tapNeedType">
+        <view wx:if="{{requirementType != 1}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="loseWeight" bindtap="tapNeedType">
           <view class="lost-weight-tab-title-view">
             <text class="lost-weight-tab-title">减肥</text>
           </view>
           <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qFTZW.png"></image></view>
         </view>
-        <view wx:if="{{choseTabIndex == 1}}"  class="lost-weight-tab" style="background-color:#34b073" id="loseWeight" bindtap="tapNeedType">
+        <view wx:if="{{requirementType == 1}}"  class="lost-weight-tab" style="background-color:#34b073" id="loseWeight" bindtap="tapNeedType">
           <view class="lost-weight-tab-title-view">
             <text class="lost-weight-tab-title" style="color:white">减肥</text>
           </view>
@@ -42,13 +42,13 @@
         </view>
 
         <!-- 塑形 -->
-        <view wx:if="{{choseTabIndex != 2}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="moulding" bindtap="tapNeedType">
+        <view wx:if="{{requirementType != 2}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="moulding" bindtap="tapNeedType">
           <view class="lost-weight-tab-title-view">
             <text class="lost-weight-tab-title">塑形</text>
           </view>
           <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qFRTL.png" style="width:170rpx"></image></view>
         </view>
-        <view wx:if="{{choseTabIndex == 2}}"  class="lost-weight-tab" style="background-color:#34b073" id="moulding" bindtap="tapNeedType">
+        <view wx:if="{{requirementType == 2}}"  class="lost-weight-tab" style="background-color:#34b073" id="moulding" bindtap="tapNeedType">
           <view class="lost-weight-tab-title-view">
             <text class="lost-weight-tab-title" style="color:white">塑形</text>
           </view>
@@ -57,15 +57,15 @@
 
 
         <!-- 增肌 -->
-        <view wx:if="{{choseTabIndex != 3}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="addMuscle" bindtap="tapNeedType">
+        <view wx:if="{{requirementType != 3}}"  class="lost-weight-tab" style="background-color:#e0e0e0" id="addMuscle" bindtap="tapNeedType">
           <view class="lost-weight-tab-title-view">
             <text class="lost-weight-tab-title">增肌</text>
           </view>
           <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qFXDD.png" style="width:170rpx"></image></view>
         </view>
-        <view wx:if="{{choseTabIndex == 3}}"  class="lost-weight-tab" style="background-color:#34b073" id="addMuscle" bindtap="tapNeedType">
+        <view wx:if="{{requirementType == 3}}"  class="lost-weight-tab" style="background-color:#34b073" id="addMuscle" bindtap="tapNeedType">
           <view class="lost-weight-tab-title-view">
-            <text class="lost-weight-tab-title" style="color:white">减肥</text>
+            <text class="lost-weight-tab-title" style="color:white">增肌</text>
           </view>
           <view class="lost-weight-tab-iamge-view"><image class="lost-weight-tab-image" src="https://t1.picb.cc/uploads/2018/05/05/2qF98w.png" style="width:170rpx"></image></view>
         </view>

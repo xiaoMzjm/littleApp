@@ -71,6 +71,8 @@ App({
       }
     })
   },
+
+  
   getUserInfo:function(res){
     var me = this;
     //获取用户信息  
@@ -114,9 +116,13 @@ App({
       }
     })
   },
+
+
   onLoginError:function(){
     console.info('登录异常');
   },
+
+
   // 当小程序启动，或从后台进入前台显示，会触发 onShow
   onShow: function (path){
     // console.info("onShow:path:");

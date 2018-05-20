@@ -2,7 +2,9 @@
 
 .container {
     /* background-image: url(https://t1.picb.cc/uploads/2018/03/31/2i4BLX.jpg);   */
-    background-color: #39424a;  
+    /* background-color: #39424a;  */
+    /* background-color:linear-gradient(white, red); */
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#39424a), to(#13191f));
 }
 
 

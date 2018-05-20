@@ -2,7 +2,8 @@
 
 .container {
     /* background-image: url(https://t1.picb.cc/uploads/2018/03/31/2i4BLX.jpg);   */
-    background-color: #39424a;  
+    /* background-color: #39424a;   */
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#39424a), to(#13191f));
 }
 
 
@@ -12,7 +13,6 @@
 .logo-img{
   width: 224rpx;height: 110rpx;margin-top:50rpx;
 }
-
 
 
 

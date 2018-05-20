@@ -1,3 +1,6 @@
+var util = require("../../utils/util.js");
+const app = getApp()
+
 // pages/requirement/requirement.js
 Page({
 
@@ -5,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    choseTabIndex:2,
+    requirementType: 2,
     sex:1,
     weight:50,
     height:170,
@@ -30,7 +33,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.init();
   },
 
   /**
@@ -66,6 +69,92 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+
+  /**
+   * 初始化
+   */
+  init:function(){
+    let userInfo = app.globalData.userInfo;
+    let me = this;
+
+    // 用户信息
+    wx.request({
+      url: util.getServerUrlForGetUser() + '/' + userInfo.userCode,
+      data: {
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      //服务端的回掉  
+      success: function (result) {
+        console.info(result);
+        if (result.data.success != true) {
+          wx.showModal({
+            title: '抱歉失败',
+            content: result.data.errorMsg,
+            showCancel: false,
+          });
+          return;
+        }
+        let user = result.data.data;
+        if (user.sex && user.weight && user.height ) {
+          me.setData({
+            sex: user.sex,
+            weight: user.weight,
+            height: user.height
+          });
+        }
+        
+      },
+      fail: function () {
+        wx.showModal({
+          title: '网络错误',
+          content: '网络错误',
+          showCancel: false,
+        });
+      }
+    })
+
+    // 需求信息
+    wx.request({
+      url: util.getServerUrlForGetRequirement() + '/' + userInfo.userCode,
+      data: {
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      //服务端的回掉  
+      success: function (result) {
+        console.info(result);
+        if (result.data.success != true) {
+          wx.showModal({
+            title: '抱歉失败',
+            content: result.data.errorMsg,
+            showCancel: false,
+          });
+          return;
+        }
+        let requirement = result.data.data;
+        if (!!requirement) {
+          me.setData({
+            requirementType: requirement.requirementType,
+            difficulty: requirement.difficulty
+          });
+        }
+        
+      },
+      fail: function () {
+        wx.showModal({
+          title: '网络错误',
+          content: '网络错误',
+          showCancel: false,
+        });
+      }
+    })
   },
 
 
@@ -131,18 +220,18 @@ Page({
    */
   tapNeedType:function(data){
     console.info(data.currentTarget.id);
-    let choseTabIndex = 2;
+    let requirementType = 2;
     if (data.currentTarget.id == 'loseWeight') {
-      choseTabIndex = 1;
+      requirementType = 1;
     }
     else if (data.currentTarget.id == 'moulding'){
-      choseTabIndex = 2;
+      requirementType = 2;
     }
     else if (data.currentTarget.id == 'addMuscle'){
-      choseTabIndex = 3;
+      requirementType = 3;
     }
     this.setData({
-      choseTabIndex: choseTabIndex
+      requirementType: requirementType
     });
   },
 
@@ -152,7 +241,9 @@ Page({
    * 完成
    */
   finish:function(){
+
     console.info(this.data.weight);
+
     if (this.data.weight <= 0 || this.data.weight >= 500) {
       wx.showModal({
         title: "请输入正确的体重",
@@ -167,20 +258,59 @@ Page({
       return;
     }
 
+    let userInfo = app.globalData.userInfo;
 
-    wx.showLoading({
-      title:'正为您推荐计划',
-      mask:true
+    console.info("确认需求");
+    console.info(userInfo);
+    console.info("code=" + userInfo.userCode);
+    console.info("sex=" + this.data.sex);
+    console.info("weight=" + this.data.weight);
+    console.info("height=" + this.data.height);
+    console.info("difficulty=" + this.data.difficulty);
+    console.info("requirementType=" + this.data.requirementType);
+
+    //发起网络请求  
+    wx.request({
+      url: util.getServerUrlForChangeRequirement(),
+      data: {
+        code: userInfo.userCode,
+        weight: this.data.weight,
+        height: this.data.height,
+        sex: this.data.sex,
+        requirementType: this.data.requirementType,
+        difficulty: this.data.difficulty,
+        userCode: userInfo.userCode
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      //服务端的回掉  
+      success: function (result) {
+        console.info(result);
+        if(result.data.success != true) {
+          wx.showModal({
+            title: '抱歉失败',
+            content: result.data.errorMsg,
+            showCancel: false,
+          });
+          return ;
+        }
+        else if (result.data.success == true){
+          console.info("确认需求成功");
+          wx.navigateTo({
+            url: '/pages/recommendtarget/recommendtarget',
+          })
+        
+        }
+      },
+      fail:function(){
+        wx.showModal({
+          title: '网络错误',
+          content: '网络错误',
+          showCancel: false,
+        });
+      }
     })
-
-    wx.navigateTo({
-      url: '/pages/recommendtarget/recommendtarget',
-    })
-
-    
-
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 2000)
   },
 })

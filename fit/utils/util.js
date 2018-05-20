@@ -1,8 +1,12 @@
 let env = 'online';
+// let env = 'local';
 let localServierDomain = 'http://localhost:8088';
 let onlineServierDomain = 'https://keephealthy.duapp.com';
 let testServerUrl = '/test/mysqlHello';
 let serverUrlForLogin = '/login/getUserInfo';
+let serverUrlForChangeRequirement = '/requirement/changeRequirement';
+let serverUrlForGetUser = '/user/get';
+let serverUrlForGetRequirement = '/requirement/get';
 
 
 /**
@@ -48,6 +52,24 @@ const getServerUrlForLogin = () => {
   return getServerDomain() + serverUrlForLogin;
 }
 
+/**
+ * 获取确认需求的服务端URL
+ */
+const getServerUrlForChangeRequirement = () => {
+  return getServerDomain() + serverUrlForChangeRequirement;
+}
+
+/**
+ * 获取用户信息服务端Url
+ */
+const getServerUrlForGetUser = () => {
+  return getServerDomain() + serverUrlForGetUser;
+}
+
+const getServerUrlForGetRequirement = () => {
+  return getServerDomain() + serverUrlForGetRequirement;
+}
+
 // 暴露公共函数
 module.exports = {
   formatTime: formatTime,
@@ -55,4 +77,7 @@ module.exports = {
   getServerDomain: getServerDomain,
   getTestServerUrl: getTestServerUrl, 
   getServerUrlForLogin: getServerUrlForLogin,
+  getServerUrlForChangeRequirement: getServerUrlForChangeRequirement,
+  getServerUrlForGetUser: getServerUrlForGetUser,
+  getServerUrlForGetRequirement: getServerUrlForGetRequirement
 }

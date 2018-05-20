@@ -30,7 +30,7 @@
             <text class="mytarget-left-desc-text">一个月内</text>
           </view>
           <view class="mytarget-left-desc2">
-            <text class="mytarget-left-desc2-text">{{targetType}}</text>
+            <text class="mytarget-left-desc2-text">{{requirementTypeName}}</text>
           </view>
 
           <!-- 千克-->
