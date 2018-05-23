@@ -106,13 +106,18 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
+    let userInfo = app.globalData.userInfo;
     if (res.from === 'button') {
       // 来自页面内转发按钮
+      console.info("来自页面内转发按钮");
       console.log(res.target)
     }
+    let url = '/pages/loading/loading?userCode=' + userInfo.userCode;
+    console.info("分享的链接：");
+    console.info(url);
     return {
       title: '邀您一起见证我的训练计划！',
-      path: '/pages/index/index?id=123',
+      path: url,
       success: function (res) {
         // 转发成功
       },

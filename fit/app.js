@@ -20,50 +20,20 @@ App({
         console.info("wx.login res=");
         console.info(res);
 
-        // 获取配置信息
+        // 获取配置信息（判断用户是否已授权）
         wx.getSetting({
           success(setRes) {
             console.info("wx.getSetting setRes=");
             console.info(setRes);
 
-            // 判断是否已授权  
+            // 没有授权
             if (!setRes.authSetting['scope.userInfo']) {
               console.info("setRes.authSetting['scope.userInfo'] == false 用户未授权获取用户信息");
-
-              // 授权访问  
-              wx.authorize({
-                scope: 'scope.userInfo',
-                success() {
-                  //获取用户信息  
-                  wx.getUserInfo({
-                    lang: "zh_CN",
-                    success: function (userRes) {
-                      //发起网络请求  
-                      wx.request({
-                        url: config.loginWXUrl,
-                        data: {
-                          code: res.code,
-                          encryptedData: userRes.encryptedData,
-                          iv: userRes.iv
-                        },
-                        header: {
-                          "Content-Type": "application/x-www-form-urlencoded"
-                        },
-                        method: 'POST',
-                        //服务端的回掉  
-                        success: function (result) {
-                          var data = result.data.result;
-                          data.expireTime = nowDate + EXPIRETIME;
-                          wx.setStorageSync("userInfo", data);
-                        }
-                      })
-                    }
-                  })
-                }
-              })
-            } else {
+              me.globalData.hasAuth = 3;
+            } 
+            // 已授权
+            else {
               console.info("setRes.authSetting['scope.userInfo'] == true 用户已授权获取用户信息");
-
               me.getUserInfo(res);
             }
           }
@@ -72,16 +42,17 @@ App({
     })
   },
 
-  
+
+  /**
+   * 用户已授权，到自己的服务器获取用户信息
+   */
   getUserInfo:function(res){
+
     var me = this;
     //获取用户信息  
     wx.getUserInfo({
       lang: "zh_CN",
       success: function (userRes) {
-
-        console.info("wx.getUserInfo userRes=");
-        console.info(userRes);
 
         //发起网络请求  
         wx.request({
@@ -100,28 +71,22 @@ App({
             console.info(result);
             let serverResult = result.data;
             if (!serverResult.success) {
-              wx.showModal({
-                title: '登录异常',
-                content: '网络异常，请关闭并重新打开小程序',
-                showCancel: false,
-                success: me.onLoginError
-              });
+              me.getUserInfo(res);
               return;
             }
             var data = serverResult.data;
             wx.setStorageSync("userInfo", data);
             me.globalData.userInfo = data;
+            me.globalData.hasAuth = 2;
+          },
+          fail:function(e){
+            console.info("请求用户信息失败：");
+            console.info(e);
           }
         })
       }
     })
   },
-
-
-  onLoginError:function(){
-    console.info('登录异常');
-  },
-
 
   // 当小程序启动，或从后台进入前台显示，会触发 onShow
   onShow: function (path){
@@ -143,5 +108,6 @@ App({
   // console.log(appInstance.globalData)
   globalData: {
     userInfo: null,
+    hasAuth: 1 // 1未知，2已授权，3未授权
   }
 })

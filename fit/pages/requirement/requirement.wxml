@@ -192,8 +192,8 @@
 
         <!-- 完成 -->
         <view class="finish-view">
-          <view class="finish-view-botton" bindtap="finish">
-            <text class="finish-view-button-text">完成</text>
+          <view class="finish-view-botton">
+            <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class="finish-view-button-text">完成</button>
           </view>
         </view>
 

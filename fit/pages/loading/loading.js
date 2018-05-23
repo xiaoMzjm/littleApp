@@ -15,36 +15,54 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.jump();
+    console.info("loading页面的onLoad");
+    console.info(options);
   },
 
   /**
    * 页面跳转
    */
   jump:function(){
+
     var me = this;
     var id = setInterval(function () {
       console.info("定时器");
       let userInfo = app.globalData.userInfo;
+      let hasAuth = app.globalData.hasAuth;
+      console.info("userinfo=" + userInfo);
+      console.info("hasAuth=" + hasAuth);
 
-      if (userInfo) {
-        console.info("loading.js userInfo=");
-        console.info(userInfo);
-        let courseNum = userInfo.courseNum;
-
-        if (courseNum && courseNum > 0) {
-          wx.switchTab({
-            url: '/pages/index/index',
-          })
-        }
-        else {
-          wx.navigateTo({
-            url: '/pages/requirement/requirement',
-          })
-        }
-        console.info(id);
-        clearInterval(id);
+      // 若还没判断是否授权
+      if (hasAuth == 1) {
+        return;
       }
+
+      // 若没授权，直接跳转
+      if (hasAuth == 3) {
+        wx.navigateTo({
+          url: '/pages/requirement/requirement',
+        })
+        clearInterval(id);
+        return;
+      }
+
+      // 若已授权且还在请求后台
+      console.info("loading.js userInfo=");
+      console.info(userInfo);
+      let courseNum = userInfo.courseNum;
+
+      if (courseNum && courseNum > 0) {
+        wx.switchTab({
+          url: '/pages/index/index',
+        })
+      }
+      else {
+        wx.navigateTo({
+          url: '/pages/requirement/requirement',
+        })
+      }
+      clearInterval(id);
+
     }
     , 1000);
   },
@@ -59,8 +77,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    this.jump();
+  onShow: function (option) {
+    let me = this;
+    setTimeout(function(){
+      me.jump();
+    },1000);
+    
   },
 
   /**
@@ -96,5 +118,7 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+
 })

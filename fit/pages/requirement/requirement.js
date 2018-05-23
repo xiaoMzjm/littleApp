@@ -77,6 +77,9 @@ Page({
    */
   init:function(){
     let userInfo = app.globalData.userInfo;
+    if(!userInfo) {
+      return;
+    }
     let me = this;
 
     // 用户信息
@@ -235,6 +238,75 @@ Page({
     });
   },
 
+  /**
+   * 用户授权登陆结果
+   */
+  onGotUserInfo: function (e) {
+    console.info("点击了授权按钮");
+    console.info(e);
+    let me = this;
+    if (!e.detail.iv) {
+      console.info("用户点击了拒绝");
+      wx.showToast({
+        title:'亲，请先授权登陆',
+        icon:'none'
+      });
+      return;
+    }
+    wx.login({
+      success: function (res) {
+        wx.showLoading();
+        me.getUserInfo(res);
+      }
+    })
+  },
+
+
+  /**
+   * 用户已授权，到自己的服务器获取用户信息
+   */
+  getUserInfo: function (res) {
+
+    var me = this;
+    //获取用户信息  
+    wx.getUserInfo({
+      lang: "zh_CN",
+      success: function (userRes) {
+
+        //发起网络请求  
+        wx.request({
+          url: util.getServerUrlForLogin(),
+          data: {
+            code: res.code,
+            encryptedData: userRes.encryptedData,
+            iv: userRes.iv
+          },
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: 'POST',
+          success: function (result) {
+            console.info("服务端返回结果：result=");
+            console.info(result);
+            let serverResult = result.data;
+            if (!serverResult.success) {
+              me.getUserInfo(res);
+              return;
+            }
+            var data = serverResult.data;
+            wx.setStorageSync("userInfo", data);
+            app.globalData.userInfo = data;
+            app.globalData.hasAuth = 2;
+            me.finish();
+          },
+          fail: function (e) {
+            console.info("请求用户信息失败：");
+            console.info(e);
+          }
+        })
+      }
+    })
+  },
 
 
   /**
@@ -242,12 +314,11 @@ Page({
    */
   finish:function(){
 
-    console.info(this.data.weight);
-
     if (this.data.weight <= 0 || this.data.weight >= 500) {
       wx.showModal({
         title: "请输入正确的体重",
       });
+      wx.hideLoading();
       return;
     }
 
@@ -255,6 +326,7 @@ Page({
       wx.showModal({
         title: "请输入正确的身高",
       });
+      wx.hideLoading();
       return;
     }
 
@@ -294,6 +366,7 @@ Page({
             content: result.data.errorMsg,
             showCancel: false,
           });
+          wx.hideLoading();
           return ;
         }
         else if (result.data.success == true){
@@ -305,6 +378,7 @@ Page({
         }
       },
       fail:function(){
+        wx.hideLoading();
         wx.showModal({
           title: '网络错误',
           content: '网络错误',

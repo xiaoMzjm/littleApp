@@ -16,6 +16,7 @@
 
 
 
+
 .tab{
   width: 600rpx;height: 820rpx;background-color: #ffffff;margin-left: 37px;border-radius: 0.3em;
 }

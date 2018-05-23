@@ -102,7 +102,7 @@
   border-radius: 0.3em;width: 368rpx;height: 63rpx;background-color: #34b073;margin-left: auto;margin-right:auto;text-align: center;
 }
 .finish-view-button-text{
-  font-size: 29rpx;color: #ffffff;letter-spacing: 15rpx;line-height: 63rpx;
+  font-size: 29rpx;color: #ffffff;letter-spacing: 15rpx;line-height: 63rpx;background-color:#34b073;
 }
 
 

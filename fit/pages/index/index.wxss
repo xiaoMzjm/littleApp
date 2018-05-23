@@ -2,7 +2,8 @@
 
 .container {
    /* background-image: url(https://t1.picb.cc/uploads/2018/03/31/2i4BLX.jpg);  */
-  background-color: #39424a;  
+  /* background-color: #39424a;   */
+  background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#39424a), to(#13191f));
 }
 
 .blank{
@@ -34,7 +35,7 @@
 
 
 .todayPlan-progress-bar{
-  width: 550rpx;height: 10rpx;background-color: #adadad;margin-left: 29px;border-radius: 1em;margin-top: 15rpx;
+  width: 550rpx;height: 10rpx;background-color: #adadad;margin-left: 25px;border-radius: 1em;margin-top: 15rpx;
 }
 .todayPlan-progress-bar-left {
   height: 10rpx;width: 200rpx;background-color: #34b073;border-radius: 1rem;

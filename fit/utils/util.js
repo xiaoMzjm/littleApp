@@ -1,5 +1,5 @@
-let env = 'online';
-// let env = 'local';
+// let env = 'online';
+let env = 'local';
 let localServierDomain = 'http://localhost:8088';
 let onlineServierDomain = 'https://keephealthy.duapp.com';
 let testServerUrl = '/test/mysqlHello';
